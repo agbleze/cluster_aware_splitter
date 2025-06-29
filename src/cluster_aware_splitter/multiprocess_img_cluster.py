@@ -2,7 +2,7 @@
 #%%
 from tqdm import tqdm
 import multiprocessing
-from feat import get_imgs_and_extract_features_wrapper, ImgPropertySetReturnType
+from .feat import get_imgs_and_extract_features_wrapper, ImgPropertySetReturnType
 import numpy as np
 from clusteval import clusteval
 import os

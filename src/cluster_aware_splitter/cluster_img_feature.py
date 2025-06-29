@@ -4,7 +4,7 @@ import os
 from glob import glob
 import numpy as np
 from clusteval import clusteval
-from feat import (ImgPropertySetReturnType, img_feature_extraction_implementor,
+from .feat import (ImgPropertySetReturnType, img_feature_extraction_implementor,
                   extract_object_features_per_image
                   )
 
