@@ -301,8 +301,6 @@ def get_imgs_and_extract_features_multiprocess(img_path, img_resize_width,
                                     model_name=model_name,
                                     img_normalization_weight=img_normalization_weight
                                     )
-    #images_list = []
-    #features_list = []
     feat_extract.set_seed_consistently()
     model, preprocess = feat_extract.load_model_and_preprocess_func()
     feature_extractor = feat_extract.get_feature_extractor(model)
@@ -315,7 +313,6 @@ def get_imgs_and_extract_features_multiprocess(img_path, img_resize_width,
     print(f"total features processed {len(features_list)}")
     logger.info(f"total imgs processed {len(images_list)}")
     logger.info(f"total features processed {len(features_list)}")
-    #lock.release()
     return images_list, features_list
 
 #%%
@@ -380,28 +377,6 @@ def img_feature_extraction_implementor(img_property_set,
         img_property_set.features = feature_list
         img_property_set.img_paths = extracted_img_path
         return img_property_set
-        # args = [{"img_path": img_path, "img_resize_width": img_resize_width,
-        #          "img_resize_height": img_resize_height, "model_family": model_family,
-        #          "model_name":model_name, 
-        #          "img_normalization_weight": img_normalization_weight,
-        #          "seed": seed, "return_img_path": True
-        #          } for img_path in img_paths
-        #         ]
-        # chunksize = max(1, len(args) // 10)
-        # num_processes = multiprocessing.cpu_count()
-        # from tqdm import tqdm
-        # with multiprocessing.Pool(num_processes) as p:
-        #     results = list(
-        #         tqdm(
-        #             p.imap_unordered(
-        #                 get_imgs_and_extract_features_wrapper, args, chunksize=chunksize
-        #             ),
-        #             total=len(img_paths),
-        #         )
-        #     )
-
-    #return img_property_set
-
 
 #%%       
 def run_multiprocess(img_property_set,
