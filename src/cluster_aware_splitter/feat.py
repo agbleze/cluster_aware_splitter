@@ -22,8 +22,6 @@ from pathlib import Path
 import tensorflow_io as tfio
 from tqdm import tqdm
 from cluster_aware_splitter import logger
-#%%
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 tf.config.set_visible_devices([], 'GPU')
 
@@ -445,11 +443,6 @@ if __name__ == '__main__':
     img_names = [os.path.basename(img) for img in img_paths_list]
     img_property_set = ImgPropertySetReturnType(img_paths=img_paths_list, img_names=img_names, total_num_imgs=100, max_num_clusters=4)
 
-
-    # img_property_set = img_feature_extraction_implementor(img_property_set=img_property_set,
-    #                                                     use_cropped_imgs=False
-    #                                                     )
-    
     imgclust_df = run_multiprocess(img_property_set=img_property_set)
     
   
