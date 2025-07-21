@@ -28,25 +28,3 @@ if __name__ == "__main__":
     clusters = results["labx"]
     imgcluster_dict = {"image_names": img_property_set.img_names, "clusters": clusters}
     imgclust_df = pd.DataFrame.from_dict(imgcluster_dict)
-
-
-
-
-#%%
-# import fiftyone.zoo as foz
-
-# # To download the COCO dataset for only the "person" and "car" classes
-# dataset = foz.load_zoo_dataset(
-#     "coco-2017",
-#     split="train",
-#     label_types=["detections", "segmentations"],
-#     classes=["person", "car"],
-#     # max_samples=50,
-# )
-
-
-
-
-
-
-# %%
