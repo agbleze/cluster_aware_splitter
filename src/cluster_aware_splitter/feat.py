@@ -501,10 +501,8 @@ if __name__ == '__main__':
 
     #%%
     np.array(img_resize_with_pad).shape
-    #%%
     image = tf.io.read_file(img_paths[0])   
 
-    #%%
     read_img_list, feat_list = [], []
     for img in img_paths_list:
         read_img, feat_ext = get_imgs_and_extract_features(img_path=img, 
